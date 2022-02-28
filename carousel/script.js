@@ -11,7 +11,7 @@
       this.itemClassName = 'carousel_item'
       this.items = this.caruoselElement.querySelectorAll('.carousel_item')
       this.totalItems = this.items.length
-      this.current = 0
+      this.current = 0 // 현재 인덱스
     }
 
     initCarousel() {
