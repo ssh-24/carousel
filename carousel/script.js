@@ -13,10 +13,14 @@
             
             this.totalItems = this.items.length; // items의 총 갯수, 5
             this.current = 0 // 현재 인덱스
+
+            // 움직임 체크
+            this.isMoving = false; // true일때 버튼이 동작하지 않도록
         }
 
         // 초기설정 - 초기화
         initCarousel() {
+            this.isMoving = false;
             this.items[this.totalItems - 1].classList.add('prev')
             this.items[0].classList.add('active')
             this.items[1].classList.add('next')
@@ -42,6 +46,10 @@
 
         
         moveCarouselTo() {
+            // 버튼 동작 제어
+            if (this.isMoving) return;
+            this.disabledInteraction()
+
             let prev = this.current - 1
             let next = this.current + 1
 
@@ -73,6 +81,8 @@
 
         // 다음
         moveNext() {
+            if (this.isMoving) return;
+
             if (this.current === this.totalItems - 1) {
                 this.current = 0
             }
@@ -85,6 +95,8 @@
         
         // 이전
         movePrev() {
+            if (this.isMoving) return;
+
             if (this.current === 0) {
                 this.current = this.totalItems - 1
             }
@@ -93,6 +105,15 @@
             }
             // 동작
             this.moveCarouselTo()
+        }
+
+
+        // 버튼 동작 제어
+        disabledInteraction() {
+            this.isMoving = true;
+            setTimeout(() => {
+                this.isMoving = false
+            }, 500); // 0.5초 뒤에 false로 변경
         }
 
 
