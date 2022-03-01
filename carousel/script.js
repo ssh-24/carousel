@@ -20,6 +20,7 @@
       this.items[1].classList.add('next')
     }
 
+    // 캐러셀 이동
     moveCarouselTo() {
       let prev = this.current - 1
       let next = this.current + 1
@@ -78,6 +79,7 @@
     }
   }
 
+  // DOM load 되면 실행
   document.addEventListener('DOMContentLoaded', () => {
     const carouselElement = get('.carousel')
     const carousel = new Carousel(carouselElement)

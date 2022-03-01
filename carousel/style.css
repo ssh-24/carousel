@@ -26,6 +26,7 @@
 }
 
 .carousel_item.active {
+  /* 활성화일때만 보이도록 */
   opacity: 1;
   position: relative;
   z-index: 900;
@@ -37,10 +38,12 @@
 }
 
 .carousel_item.prev {
+  /* x축 방향으로 정렬 */
   transform: translateX(-100%);
 }
 
 .carousel_item.next {
+  /* x축 방향으로 정렬 */
   transform: translateX(100%);
 }
 
